@@ -1,0 +1,532 @@
+@import 'normalize';
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Roboto&display=swap');
+
+@include normalize();
+
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-only {
+  @media (min-width: 600px) and (max-width: 899px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+
+$black : #252525;
+$grey: #8C8C8C;
+$yellow: #FEC667;
+$red: #FA6C60;
+$blue: #83D6FF; 
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: $black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.h1 {
+  font-size: 2rem;
+
+  @include for-tablet-portrait-up{
+    font-size: 2.5rem;
+  }
+
+  @include for-tablet-landscape-up{
+    font-size: 3rem;
+  }
+
+  @include for-desktop-up{
+    font-size: 4rem;
+  }
+}
+
+.h2 {
+  font-size: 1.5rem;
+  color: white;
+  font-family: 'Patua One', cursive;
+
+  @include for-tablet-portrait-up{
+    font-size: 2rem;
+  }
+  @include for-tablet-landscape-up{
+    font-size: 2.5;
+  }
+}
+
+.h3 {
+  font-size: 1.2rem;
+  color: $red !important;
+  font-family: 'Patua One', cursive;
+
+  @include for-tablet-portrait-up{
+    font-size: 1.5;
+  }
+}
+
+.logo {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-family: 'Patua One';
+  color: white;
+  opacity: 0.5;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem !important;
+
+  @include for-phone-only{
+    margin-top: 0 !important;
+  }
+  
+  .hero-content {
+    box-sizing: border-box;
+    font-family: 'Patua One', cursive;
+    color: white;
+    flex-grow: 1;
+    line-height: 1.1;
+    
+    @include for-phone-only{
+      width: 100%;
+      display: block;
+
+      br {
+        display: none;
+      }
+    }
+    
+    @include for-tablet-portrait-only{
+      width: 100%; 
+    }
+    
+    .title {
+      margin: 0;
+      z-index: 10;
+      
+      @include for-phone-only {
+        margin-top: 1rem;
+      }
+
+      @include for-desktop-up {
+        font-size: 4rem;
+      }
+    }
+      
+    .primary-color {
+      color: $yellow;
+    }
+    
+    .secondary-color {
+      color: $blue;
+      white-space: nowrap;
+    }
+
+    .third-color {
+      color: $red;
+      white-space: nowrap;
+    }
+    
+  }
+}
+
+.subtitle {
+  padding-top: 1.5rem;
+  font-size: 1rem;
+  color: $grey;
+  font-family: 'Roboto', sans-serif;
+}
+
+.title-link {
+  display: inline-block;
+  color:white;
+  text-decoration: none;
+  font-size: 1rem;
+
+  @include for-phone-only{
+    padding-top: 1rem;
+  }
+
+  @include for-tablet-portrait-up{
+    padding-top: 1.5rem;
+  }
+
+  @include for-desktop-up{
+    padding-top: 2.5rem;
+  }
+  
+  svg {
+    margin-right: 0.5rem;
+  }
+}
+
+.hero-image {
+  position: relative;
+  opacity: 0.7;
+  flex-grow: 1;
+  
+  @include for-phone-only{
+    width: 100%;
+    display: none;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 8rem;
+
+  @include for-phone-only {
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  @include for-tablet-portrait-up{
+    padding: 0 4rem;
+  }
+}
+
+.service-title {
+  margin-top: 6rem;
+  padding-bottom: 3rem;
+  color: white;
+  font-family: 'Patua One', cursive;
+  display: block;
+
+  @include for-phone-only{
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+
+  }
+}
+
+.services {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  @include for-phone-only {
+    overflow-x: scroll;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+  }
+
+  @include for-tablet-portrait-up{
+    flex-wrap: wrap;
+  }
+
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    @include for-phone-only {
+      border: 1px solid $grey;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+  }
+
+  img {
+    width: 100%;
+    opacity: 0.7;
+
+    @include for-phone-only {
+      width: calc(100% - 3rem);
+    }
+  }
+
+  .placeholder {
+    opacity: 0;
+  }
+
+  .image-content {
+    position: absolute;
+  }
+}
+  
+.service-info {
+  width: 27%;
+  
+  @include for-phone-only {
+    min-width: 82vw;
+    margin-top: 3rem;    
+  }
+
+  @include for-tablet-portrait-only{
+    width: auto;
+  }
+  
+
+  p {
+    color: $grey;
+    line-height: 1.4;
+  }
+}
+
+.marketing-title {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 9rem;
+  padding-top: 5rem;
+  line-height: 1.2;
+  color: white;
+  font-family: 'Patua One', cursive;
+
+  @include for-phone-only{
+    padding-top: 2rem;
+    margin-bottom: 0rem;
+    padding-bottom: 1rem;
+  }
+
+  @include for-tablet-portrait-up{
+    margin-bottom: 5rem;
+  }
+
+  span{
+    color: $yellow;
+  }
+}
+
+.secondary-hero {
+  @include for-phone-only {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .h2 {
+    display: block;
+    
+    @include for-phone-only {
+      padding: 0 1.5rem;
+    }
+
+    @include for-tablet-portrait-up{
+      margin-top: 0;
+    }
+  }
+
+  .icons { 
+    display: flex;
+    color: #d2dcfc;
+    align-items:center;
+    gap: 4rem;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-bottom: 8rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    @include for-phone-only {
+      gap: 1.9rem;
+      overflow-x: scroll;
+      padding: 1rem 1.5rem;
+
+      img {
+        width: auto;
+        max-width: none;
+        max-height: 2rem;
+      }
+    }
+    
+    @include for-tablet-portrait-only {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 2.5rem;
+
+      img {
+        width: auto;
+        max-width: none;
+        max-height: 2rem;
+      }
+    }
+    
+    .project-icon {
+      p {
+        font-size: 1rem;
+      }
+
+    }
+  }
+}
+
+.contact-title {
+  padding-top: 4rem;
+  padding-bottom:2rem;
+  line-height: 1.2;
+  color: white;
+
+  @include for-phone-only{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @include for-tablet-portrait-up{
+    padding-top: 0;
+  }
+}
+
+.contact-form {
+  color: $grey;
+  display: block;
+  padding-bottom: 1rem;
+
+  input {
+    border: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $grey;
+    background-color: $black;
+
+    &:focus {
+      outline: 0;
+      border-color: $blue;
+    }
+  }
+}
+
+.submit-button {
+  box-sizing: border-box;
+  color: white;
+  background-color: $red;
+  border:0;
+  border-radius: 25px;
+  font-size: 0.7rem;
+  padding: 0.8rem 3.6rem;
+  margin-bottom: 4.5rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-family: 'Patua One', cursive;
+
+  @include for-phone-only{
+    margin-bottom: 1rem;
+  }
+}
+
+.footer-container {
+  width: cover;
+  margin-bottom: 0;
+  color:white;
+  display: flex;
+
+  @include for-phone-only{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include for-tablet-portrait-only{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @include for-tablet-landscape-up{
+    display: flex;
+    align-items: center;
+  }
+  
+  .question {
+    padding-top: 5rem;
+    margin-bottom:4rem;
+    line-height: 1.2;
+    font-family: 'Patua One', cursive;
+    width: 50%;
+    
+    span {
+      color: $yellow;
+    }
+
+    @include for-phone-only{
+      width: 100%;
+      margin-top: 0;
+      padding-top: 2rem;
+    }
+
+    @include for-tablet-portrait-only{
+      width: 100%;
+      padding-top: 0;
+    }
+  }
+  
+  .footer-order {
+    width: 100%;
+  }
+
+  .rocket {
+    display: none;
+    opacity: 0.7;
+    width: 70%;
+
+    @include for-tablet-landscape-up{
+      display: block;
+    }
+  
+  }
+}
+
+.link-footer {
+  display: inline-block;
+  color:white;
+  text-decoration: none;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 2rem;
+}
+
+footer {
+  display: flex;
+  margin-top: 6rem;
+  padding-bottom: 3rem;
+  font-size: 0.9rem;
+  justify-content: space-evenly;
+  color: $grey;
+
+  @include for-phone-only{
+    margin-top: 0;
+    display: block;
+  }
+
+  .number {
+    @include for-phone-only{
+      width: 50%;
+    }
+  }
+
+  .email {
+    @include for-phone-only{
+      width: 50%;
+    }
+  }
+}
