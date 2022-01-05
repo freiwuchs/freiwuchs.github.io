@@ -785,7 +785,7 @@ img {
 
 .marketing-title {
   display: block;
-  font-size: 1.3rem;
+  font-size: 1.75rem;
   margin-bottom: 9rem;
   padding-top: 5rem;
   line-height: 1.2;
@@ -798,6 +798,7 @@ img {
     padding-top: 2rem;
     margin-bottom: 0rem;
     padding-bottom: 1rem;
+    font-size: 1.5rem;
   }
 }
 
