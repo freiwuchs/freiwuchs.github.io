@@ -257,6 +257,7 @@ img {
   img {
     width: 100%;
     opacity: 0.7;
+    max-width: 300px;
 
     @include for-phone-only {
       width: calc(100% - 3rem);
